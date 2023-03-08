@@ -1,53 +1,20 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel
-} from '@headlessui/vue'
-import { ArrowPathIcon, ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-const mobileMenuOpen = ref(false)
-const columns = [
-  { name: '입시정보', href: '/admission' },
-  { name: '커리큘럼', href: '/curriculum' },
-  { name: '커뮤니티', href: '/community' }
-]
-const products = [
-  { name: '학원특징', description: 'ㄱㄱ', href: '/about', icon: ChartPieIcon },
-  { name: '교육이념', description: 'ㄴㄴ', href: '/about/philosophy', icon: CursorArrowRaysIcon },
-  { name: '강사진', description: 'ㄷㄷ', href: '/about/staff', icon: FingerPrintIcon },
-  { name: '오시는길', description: 'ㄷㄷ', href: '/about/location', icon: ArrowPathIcon }
-]
-</script>
-
 <template>
   <header id="saeroun-header" class="bg-white sticky top-0 z-10 to-transparent shadow-lg">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 dark:bg-slate-800" aria-label="Global">
-      <div class="flex lg:flex-1">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 md:px-8 dark:bg-slate-800" aria-label="Global">
+      <div class="flex md:flex-1">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
           <img class="h-8 w-auto" src="@/assets/saeroun-banner.png" alt="" />
         </a>
       </div>
-      <div class="flex lg:hidden">
-        <button
-          type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          @click="mobileMenuOpen = true"
-        >
+      <div class="flex md:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="openMobileMenu">
           <span class="sr-only">Open main menu</span>
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
 
-      <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+      <PopoverGroup class="hidden md:flex md:gap-x-12">
         <Popover class="relative">
           <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-white">
             학원소개
@@ -79,12 +46,6 @@ const products = [
                   </div>
                 </div>
               </div>
-              <!-- <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                  <a v-for="item in callsToAction" :key="item.name" :href="item.href" class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                    <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                    {{ item.name }}
-                  </a>
-                </div> -->
             </PopoverPanel>
           </transition>
         </Popover>
@@ -93,20 +54,22 @@ const products = [
           {{ item.name }}</a
         >
       </PopoverGroup>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="hidden md:flex md:flex-1 md:justify-end">
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
 
-    <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-      <div class="fixed inset-0 z-10" />
-      <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <Dialog as="div" class="md:hidden" @close="closeMobileMenu()">
+      <div id="dialog-block" class="fixed inset-0 z-10" />
+      <DialogPanel
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition-all transform"
+      >
         <div class="flex items-center justify-between">
           <a href="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
             <img class="h-8 w-auto" src="@/assets/saeroun-banner.png" alt="" />
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="closeMobileMenu()">
             <span class="sr-only">Close menu</span>
             <XMarkIcon class="h-6 w-6" aria-hidden="true" />
           </button>
@@ -132,7 +95,6 @@ const products = [
                   >
                 </DisclosurePanel>
               </Disclosure>
-
               <a
                 v-for="item in columns"
                 :key="item.name"
@@ -154,3 +116,45 @@ const products = [
     </Dialog>
   </header>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Popover,
+  PopoverButton,
+  PopoverGroup,
+  PopoverPanel
+} from '@headlessui/vue'
+import { ArrowPathIcon, ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+const mobileMenuOpen = ref(false)
+function closeMobileMenu() {
+  mobileMenuOpen.value = false
+}
+function openMobileMenu() {
+  mobileMenuOpen.value = true
+}
+
+const columns = [
+  { name: '입시정보', href: '/admission' },
+  { name: '커리큘럼', href: '/curriculum' },
+  { name: '커뮤니티', href: '/community' }
+]
+const products = [
+  { name: '학원특징', description: 'ㄱㄱ', href: '/about', icon: ChartPieIcon },
+  { name: '교육이념', description: 'ㄴㄴ', href: '/about/philosophy', icon: CursorArrowRaysIcon },
+  { name: '강사진', description: 'ㄷㄷ', href: '/about/staff', icon: FingerPrintIcon },
+  { name: '오시는길', description: 'ㄷㄷ', href: '/about/location', icon: ArrowPathIcon }
+]
+</script>
+
+<style>
+#dialog-block {
+  transform-origin: top;
+}
+</style>
