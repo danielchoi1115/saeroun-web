@@ -37,62 +37,48 @@
     </div>
   </section>
 
-  <section class="bg-white dark:bg-gray-900">
-    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-      <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">인사말</h2>
-        <p class="mb-4">
-          소개 1 We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big
-          enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the
-          scope you want at the pace you need.
-        </p>
-        <p>소개 2 We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
-      </div>
-      <div class="grid grid-cols-2 gap-4 mt-8">
-        <img class="w-full rounded-lg object-scale-down" src="@/assets/demo.png" alt="office content 1" />
-        <img class="mt-4 w-full lg:mt-10 rounded-lg object-scale-down" src="@/assets/demo2.png" alt="office content 2" />
-      </div>
-    </div>
-  </section>
+  <SSection>
+    <SHeading2>인사말</SHeading2>
+    <SFontWarpper>
+      <SBody centered="true">
+        소개 1 We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big
+        enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope
+        you want at the pace you need.
+      </SBody>
+      <SBody centered="true">
+        소개 2 We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.
+      </SBody>
+    </SFontWarpper>
+  </SSection>
 
-  <section class="bg-white dark:bg-gray-900">
-    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">선생님 소개</h2>
-      </div>
-      <div class="inline sm:flex">
-        <div v-for="teacher in teachers" :key="teacher.name" class="m-3">
-          <img
-            class="h-auto transition-all duration-200 rounded-lg shadow-lg hover:scale-105"
-            :src="teacher.src"
-            :alt="teacher.description"
-          />
-          <div class="flex justify-center text-lg font-bold mt-6 sm:mb-16">{{ teacher.subject }} - {{ teacher.name }} 선생님</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SSection>
+    <SHeading2>선생님 소개</SHeading2>
 
-  <section class="bg-white dark:bg-gray-900">
-    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-      <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">오시는 길</h2>
-        <p class="mb-4">
-          We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough
-          to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you
-          want at the pace you need.
-        </p>
-        <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
-      </div>
-      <div class="grid grid-cols-2 gap-4 mt-8">
-        <img class="w-full rounded-lg object-scale-down" src="@/assets/demo.png" alt="office content 1" />
-        <img class="mt-4 w-full lg:mt-10 rounded-lg object-scale-down" src="@/assets/demo2.png" alt="office content 2" />
+    <div class="inline sm:flex">
+      <div v-for="teacher in teachers" :key="teacher.name" class="m-3">
+        <img
+          class="h-auto transition-all duration-200 rounded-lg shadow-lg hover:scale-105"
+          :src="teacher.src"
+          :alt="teacher.description"
+        />
+        <div class="flex justify-center text-lg font-bold mt-6 sm:mb-16">{{ teacher.subject }} - {{ teacher.name }} 선생님</div>
       </div>
     </div>
-  </section>
+  </SSection>
+
+  <SSection>
+    <SHeading2>오시는 길</SHeading2>
+    <div class="flex justify-center">
+      <div class="w-full max-w-screen-md h-44 bg-slate-600">dd</div>
+    </div>
+
+    <SBody>주소, 대중교통 </SBody>
+  </SSection>
 </template>
 
 <script setup lang="ts">
+import { SHeading2, SBody, SSection, SFontWarpper } from '@/components'
+
 const teachers = [
   {
     name: '최성환',

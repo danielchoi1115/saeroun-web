@@ -1,42 +1,40 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { SSection, SHeading2, SBody, SFontWarpper } from '@/components'
+</script>
 
 <template>
   <main>
-    <section class="bg-white dark:bg-gray-900">
-      <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">We didn't reinvent the wheel</h2>
-          <p class="mb-4">
-            We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big
-            enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the
-            scope you want at the pace you need.
-          </p>
-          <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
-        </div>
-        <div class="grid grid-cols-2 gap-4 mt-8">
-          <img class="w-full rounded-lg object-scale-down" src="@/assets/demo.png" alt="office content 1" />
-          <img class="mt-4 w-full lg:mt-10 rounded-lg object-scale-down" src="@/assets/demo2.png" alt="office content 2" />
-        </div>
+    <SSection grid="true">
+      <SFontWarpper>
+        <SHeading2>We didn't reinvent the wheel</SHeading2>
+        <SBody>
+          We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough
+          to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you
+          want at the pace you need.
+        </SBody>
+        <SBody> We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick. </SBody>
+      </SFontWarpper>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <img class="w-full rounded-lg object-scale-down" src="@/assets/demo.png" alt="office content 1" />
+        <img class="mt-4 w-full md:mt-10 rounded-lg object-scale-down" src="@/assets/demo2.png" alt="office content 2" />
       </div>
-    </section>
+    </SSection>
 
     <section class="pt-16 pb-32">
-      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-6 xl:gap-12 2xl:gap-24">
-        <div class="max-w-xl px-4 mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 space-y-6 lg:col-start-2">
-          <div>
-            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Personalized approach<span class="text-primary">.</span></h2>
-            <p class="mt-4 text-lg leading-relaxed text-gray-500 sm:text-xl">
-              We offer a tailored and personalized approach to learning English. Our experienced teachers help you get the most out of your
-              learning experience.
-            </p>
-          </div>
-          <div><!----></div>
-          <!---->
+      <div class="md:mx-auto md:max-w-7xl md:px-8 md:grid md:grid-cols-2 md:grid-flow-col-dense md:gap-6 xl:gap-12 2xl:gap-24">
+        <div class="max-w-xl px-4 mx-auto sm:px-6 md:py-32 md:max-w-none md:mx-0 md:px-0 space-y-6 md:col-start-2">
+          <!-- <SFontWarpper> -->
+          <SHeading2> Personalized approach </SHeading2>
+          <SBody>
+            We offer a tailored and personalized approach to learning English. Our experienced teachers help you get the most out of your
+            learning experience.
+          </SBody>
+          <!-- </SFontWarpper> -->
         </div>
-        <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
-          <div class="lg:px-0 lg:m-0 lg:relative lg:h-full lg:flex lg:items-center pr-4 -sm:ml-48 sm:pr-6 md:-ml-16">
+        <div class="mt-12 sm:mt-16 md:mt-0 md:col-start-1">
+          <div class="md:px-0 md:m-0 md:relative md:h-full md:flex md:items-center pr-4 -sm:ml-48 sm:pr-6 md:-ml-16">
             <img
-              class="w-full lg:absolute lg:w-auto lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl rounded lg:right-0"
+              class="w-full md:absolute md:w-auto md:max-w-xl xl:max-w-2xl 2xl:max-w-3xl rounded md:right-0"
               src="https://images.unsplash.com/photo-1509062522246-3755977927d7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzMzczODV8MHwxfHNlYXJjaHw3fHxlZHVjYXRpb258ZW58MHwwfHx8MTY3NzY4MjY0Mw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
               alt="Personalized approach"
             />
@@ -55,9 +53,9 @@
       site-id="igy3Tk0Qo5fsN9PVaT5C"
       site-logo-size="md"
     >
-      <div class="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div class="relative px-4 mx-auto max-w-7xl sm:px-6 md:px-8">
         <svg
-          class="absolute transform top-full right-full translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2 rotate-3"
+          class="absolute transform top-full right-full translate-x-1/3 -translate-y-1/4 md:translate-x-1/2 xl:-translate-y-1/2 rotate-3"
           width="404"
           height="404"
           fill="none"
@@ -99,7 +97,7 @@
     </section>
 
     <section
-      class="relative py-12 sm:py-20 md:py-24 lg:py-32"
+      class="relative py-12 sm:py-20 md:py-24 md:py-32"
       sectionname="cta"
       id="cab03fmp4a"
       sectioncomponent="Cta"
@@ -128,7 +126,7 @@
           <rect width="404" height="392" fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" data-v-79ccdc36=""></rect>
         </svg>
       </div>
-      <div class="max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8" data-v-79ccdc36="">
+      <div class="max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 md:max-w-7xl md:px-8" data-v-79ccdc36="">
         <div
           class="relative px-6 py-10 overflow-hidden bg-white border-primary border-2 shadow-xl rounded-2xl sm:px-12 sm:py-20"
           data-v-79ccdc36=""
